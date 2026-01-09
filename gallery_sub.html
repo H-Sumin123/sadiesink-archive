@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1360px">
-    <title>Sadie Sink Archive</title>
+    <title>Sadie Sink Archive - Sub</title>
     <link rel="stylesheet" href="css/gallery_style.css">
 </head>
+
 <body>
     <div id="wrap">
         <div id="header">
@@ -22,30 +23,25 @@
 
         <div id="container">
             <div class="search_section">
-                <form action="search_result.html" method="GET" class="search_bar">
-                    <button type="submit" class="search_btn">
-                        <img src="./image/search.png" alt="search" class="search_icon">
-                    </button>
-                    <input type="text" name="query" placeholder="">
-                </form>
+                <div class="search_bar">
+                    <button class="search_btn"><img src="./image/search.png" class="search_icon"></button>
+                    <input type="text" placeholder="검색어를 입력하세요">
+                </div>
             </div>
 
-            <div class="sub_archive">
-                <h2 class="section_title breadcrumb" id="dynamic_title"></h2>
-                
-                <div class="archive_grid" id="gallery_container"></div>
+            <div class="breadcrumb_area">
+                <h2 class="section_title breadcrumb" id="dynamic_title">Home / Gallery</h2>
+                <div class="title_line"></div>
             </div>
+
+            <div class="archive_grid" id="gallery_container"></div>
         </div>
 
         <a href="#" id="top_btn"><img src="./image/top.png" alt="Top"></a>
-
-        <div id="lightbox">
-            <span class="close_btn">&times;</span>
-            <img src="" alt="">
-        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="js/gallery.js"></script>
 </body>
+
 </html>

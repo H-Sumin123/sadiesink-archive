@@ -1,19 +1,49 @@
 {
   "config": {
-    "startYear": 2011,
-    "endYear": 2026,
-    "folderNames": [
+    "years": [
+      "2011",
+      "2012",
+      "2013",
+      "2014",
+      "2015",
+      "2016",
+      "2017",
+      "2018",
+      "2019",
+      "2020",
+      "2021",
+      "2022",
+      "2023",
+      "2024",
+      "2025",
+      "2026"
+    ],
+    "months": [
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "10",
+      "11",
+      "12"
+    ],
+    "folder_names": [
       "Chanel Event",
-      "Daily Life",
+      "Daily Look",
       "Elle Photoshoot",
-      "Coded Magazine",
-      "Bazaar",
+      "Bazaar Magazine",
       "Vogue Party",
       "Movie Premier",
       "Filming Site",
-      "Award Ceremony"
+      "Award Ceremony",
+      "Fan Meeting"
     ],
-    "images": [
+    "image_list": [
       "01.jpg",
       "02.jpg",
       "03.jpg",

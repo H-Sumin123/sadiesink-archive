@@ -107,16 +107,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 50px;
 }
 
 .gnb {
   display: flex;
+  justify-content: center;
 }
 
 .gnb li {
-  padding-right: 80px;
-  /* li 간격 */
+  padding: 0 50px;
+  font-size: 16px;
 }
 
 .gnb li:first-child {
@@ -128,6 +128,10 @@ body {
 }
 
 .gnb li:last-child {
+  padding-right: 0;
+}
+
+.gnb li a:last-child {
   padding-right: 0;
 }
 
@@ -144,27 +148,3 @@ body {
   height: 500px;
   background-color: #eee;
 }
-
-/* Search
-.search {
-  margin-left: auto;
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.search input {
-  width: 200px;
-  height: 30px;
-  padding: 0 35px 0 10px;
-  border: 1px solid #ccc;
-  border-radius: 30px;
-}
-
-.search img {
-  width: 17px;
-  height: 17px;
-  position: absolute;
-  left: 15px;
-  cursor: pointer;
-} */

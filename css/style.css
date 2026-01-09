@@ -72,6 +72,8 @@ html {
 
   -o-text-size-adjust: none;
   /*old versions of Opera*/
+
+  overflow-y: scroll; /* 항상 오른쪽 스크롤바 영역을 표시함 */
 }
 
 body {

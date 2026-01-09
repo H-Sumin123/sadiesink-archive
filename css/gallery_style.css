@@ -1,69 +1,31 @@
-@charset "utf-8";
-
-/* [1] 초기화 */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* [그리드 기본 설정] gallery.html 전용 - 5열 (240px) */
+.archive_grid {
+  display: grid !important;
+  gap: 30px !important;
+  width: 1320px !important;
+  margin: 0 auto !important;
+  grid-template-columns: repeat(5, 240px) !important;
+  /* 메인은 5열 */
 }
 
-ul,
-ol {
-  list-style: none;
+.archive_grid .thumb_box {
+  width: 240px !important;
+  height: 300px !important;
+  background-color: #f4f4f4;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+/* [그리드 서브 설정] gallery_sub.html 전용 - 무조건 4열 (308px) */
+/* 아래 클래스가 붙으면 월 페이지든 상세 페이지든 무조건 4열이 됩니다. */
+.archive_grid.sub_mode {
+  grid-template-columns: repeat(4, 308px) !important;
 }
 
-body {
-  font-family: serif;
-  background-color: #ffffff;
-  color: #000;
-  overflow-x: hidden;
+.archive_grid.sub_mode .thumb_box {
+  width: 308px !important;
+  height: 384px !important;
 }
 
-#wrap {
-  width: 1320px;
-  margin: 0 auto;
-  position: relative;
-}
-
-/* [2] Header */
-#header {
-  padding-top: 50px;
-  text-align: center;
-}
-
-.logo {
-  font-size: 64px;
-  font-weight: 700;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
-.nav {
-  margin-bottom: 50px;
-}
-
-.gnb {
-  display: flex;
-  justify-content: center;
-}
-
-.gnb li {
-  padding: 0 50px;
-  font-size: 16px;
-}
-
-/* [3] Search Bar (배경 제거 & 30px 곡률) */
-.search_section {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 50px;
-}
-
+/* 서치바 곡률 및 배경 수정 */
 .search_bar {
   display: flex;
   align-items: center;
@@ -78,101 +40,10 @@ body {
 .search_btn {
   background: transparent !important;
   border: none !important;
-  padding: 0;
-  margin-right: 10px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
 }
 
-.search_icon {
-  width: 20px;
-  height: 20px;
-  display: block;
-}
-
-.search_bar input {
-  border: none;
-  outline: none;
-  width: 100%;
-  font-size: 16px;
-  background: transparent;
-}
-
-/* [4] Breadcrumb (주소 로드 한 줄 표시 & 하단 선) */
-.breadcrumb_area {
-  width: 1320px;
-  margin-bottom: 50px;
-}
-
-.section_title.breadcrumb {
-  font-size: 24px;
-  font-weight: normal;
-  display: block;
-  width: 100%;
-  white-space: nowrap;
-  padding-bottom: 30px;
-}
-
-.title_line {
-  width: 1320px;
-  height: 2px;
-  background-color: #000;
-  margin-bottom: 50px;
-}
-
-/* [5] 그리드 시스템 핵심 */
-/* Gallery 메인/연도 페이지 (기본 5열 - 240px) */
-.archive_grid {
-  display: grid !important;
-  gap: 30px !important;
-  width: 1320px !important;
-  margin: 0 auto !important;
-  grid-template-columns: repeat(5, 240px) !important;
-}
-
-.archive_grid .thumb_box {
-  width: 240px !important;
-  height: 300px !important;
-  background-size: cover;
-  background-position: center;
-  background-color: #f4f4f4;
-  display: block;
-}
-
-/* 나머지 모든 페이지 (4열 전환 - 308px) */
-.archive_grid.sub_mode {
-  grid-template-columns: repeat(4, 308px) !important;
-}
-
-.archive_grid.sub_mode .thumb_box {
-  width: 308px !important;
-  height: 384px !important;
-}
-
-.archive_item {
-  text-align: center;
-}
-
-.year_text {
-  font-size: 18px;
-  margin-top: 20px;
-  margin-bottom: 30px;
-  display: block;
-}
-
-/* [6] Random File 섹션 */
-.random_section {
-  margin-top: 100px;
-}
-
-.random_title_area {
-  font-size: 40px;
-  font-weight: bold;
-  padding-bottom: 30px;
-}
-
-/* [7] TOP 아이콘 (60x60 고정) */
+/* TOP 버튼 고정 */
 #top_btn {
   position: fixed;
   bottom: 40px;
@@ -180,7 +51,6 @@ body {
   width: 60px;
   height: 60px;
   z-index: 999;
-  display: none;
 }
 
 #top_btn img {

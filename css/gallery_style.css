@@ -1,0 +1,169 @@
+@charset "utf-8";
+
+/* [1] 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+body {
+  font-family: serif;
+  background-color: #ffffff;
+  color: #000;
+}
+
+#wrap {
+  width: 1320px;
+  margin: 0 auto;
+}
+
+/* [2] Header */
+#header {
+  padding-top: 50px;
+  text-align: center;
+}
+
+.logo {
+  font-size: 64px;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+
+.nav {
+  margin-bottom: 50px;
+}
+
+.gnb {
+  display: flex;
+  justify-content: center;
+}
+
+.gnb li {
+  padding: 0 50px;
+  font-size: 16px;
+}
+
+/* [3] Search */
+.search_section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.search_bar {
+  display: flex;
+  align-items: center;
+  width: 400px;
+  height: 50px;
+  border: 1px solid #252525;
+  padding: 0 15px;
+}
+
+.search_bar input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 16px;
+}
+
+.search_icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* [4] Grid 시스템 */
+.archive_grid {
+  display: grid !important;
+  gap: 30px !important;
+  /* 패딩값 30px */
+  width: 1320px !important;
+  margin: 0 auto !important;
+  justify-content: center !important;
+  grid-template-columns: repeat(5, 240px) !important;
+  /* 기본 5열 */
+}
+
+/* 5열 모드 썸네일 */
+.archive_grid .thumb_box {
+  width: 240px !important;
+  height: 300px !important;
+  background-size: cover;
+  background-position: center;
+  background-color: #eee;
+}
+
+/* 4열 모드 (sub_mode 추가 시) */
+.archive_grid.sub_mode {
+  grid-template-columns: repeat(4, 308px) !important;
+}
+
+.archive_grid.sub_mode .thumb_box {
+  width: 308px !important;
+  height: 384px !important;
+}
+
+/* 텍스트 스타일 */
+.archive_item {
+  text-align: center;
+}
+
+.year_text {
+  font-size: 18px;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+/* [5] Random File 섹션 */
+.random_section {
+  margin-top: 100px;
+}
+
+.random_title_area {
+  font-size: 40px;
+  font-weight: bold;
+  border-bottom: 2px solid #000;
+  padding-bottom: 30px;
+  margin-bottom: 50px;
+}
+
+/* 라이트박스 */
+#lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border: 5px solid #fff;
+}
+
+.close_btn {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  font-size: 60px;
+  color: #fff;
+  cursor: pointer;
+}

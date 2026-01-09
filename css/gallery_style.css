@@ -1,3 +1,126 @@
+@charset "utf-8";
+
+/* [1] 초기화 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  font-family: serif;
+  background-color: #ffffff;
+  color: #000;
+  overflow-x: hidden;
+}
+
+#wrap {
+  width: 1320px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* [2] Header */
+#header {
+  padding-top: 50px;
+  text-align: center;
+}
+
+.logo {
+  font-size: 64px;
+  font-weight: 700;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.nav {
+  margin-bottom: 50px;
+}
+
+.gnb {
+  display: flex;
+  justify-content: center;
+}
+
+.gnb li {
+  padding: 0 50px;
+  font-size: 16px;
+}
+
+/* [3] Search Bar (배경 제거 & 30px 곡률) */
+.search_section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.search_bar {
+  display: flex;
+  align-items: center;
+  width: 400px;
+  height: 50px;
+  border: 1px solid #252525;
+  border-radius: 30px;
+  padding: 0 20px;
+  background: #fff;
+}
+
+.search_btn {
+  background: transparent !important;
+  border: none !important;
+  padding: 0;
+  margin-right: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.search_icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.search_bar input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 16px;
+  background: transparent;
+}
+
+/* [4] Breadcrumb (주소 로드 한 줄 표시 & 하단 선) */
+.breadcrumb_area {
+  width: 1320px;
+  margin-bottom: 50px;
+}
+
+.section_title.breadcrumb {
+  font-size: 24px;
+  font-weight: normal;
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  padding-bottom: 30px;
+}
+
+.title_line {
+  width: 1320px;
+  height: 2px;
+  background-color: #000;
+  margin-bottom: 50px;
+}
+
 /* [그리드 기본 설정] gallery.html 전용 - 5열 (240px) */
 .archive_grid {
   display: grid !important;
@@ -25,25 +148,29 @@
   height: 384px !important;
 }
 
-/* 서치바 곡률 및 배경 수정 */
-.search_bar {
-  display: flex;
-  align-items: center;
-  width: 400px;
-  height: 50px;
-  border: 1px solid #252525;
-  border-radius: 30px;
-  padding: 0 20px;
-  background: #fff;
+.archive_item {
+  text-align: center;
 }
 
-.search_btn {
-  background: transparent !important;
-  border: none !important;
-  cursor: pointer;
+.year_text {
+  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  display: block;
 }
 
-/* TOP 버튼 고정 */
+/* [6] Random File 섹션 */
+.random_section {
+  margin-top: 100px;
+}
+
+.random_title_area {
+  font-size: 40px;
+  font-weight: bold;
+  padding-bottom: 30px;
+}
+
+/* [7] TOP 아이콘 (60x60 고정) */
 #top_btn {
   position: fixed;
   bottom: 40px;

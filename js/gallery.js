@@ -10,74 +10,59 @@ $(document).ready(function () {
         let titleHtml = `<a href="gallery.html" style="display:inline;">Home</a> / <a href="gallery.html" style="display:inline;">Gallery</a>`;
         const $container = $("#gallery_container");
 
-        // gallery_sub.html 페이지는 무조건 4열 모드(sub_mode) 적용
         $container.addClass("sub_mode");
 
-        // [Case 1] 연도만 있는 경우 (예: 2024 클릭 -> 1~12월 리스트 출력)
         if (currYear && !currMonth) {
+            // [월 선택 페이지] 기존과 동일
             titleHtml += ` / <span>${currYear}</span>`;
             for (let i = 1; i <= 12; i++) {
                 let m = i.toString().padStart(2, '0');
-                html += `
-                    <div class="archive_item">
-                        <a href="gallery_sub.html?year=${currYear}&month=${m}">
-                            <div class="thumb_box"></div>
-                            <p class="year_text">${i}월</p>
-                        </a>
-                    </div>`;
+                html += `<div class="archive_item"><a href="gallery_sub.html?year=${currYear}&month=${m}"><div class="thumb_box"></div><p class="year_text">${i}월</p></a></div>`;
             }
         }
-        // [Case 2] 연도와 월이 모두 있는 경우 (폴더 또는 이미지 출력)
         else if (currYear && currMonth) {
-            // [A] 특정 폴더를 아직 안 눌렀을 때 -> 폴더 리스트(샤넬 행사, 일상 등) 출력
             if (!currFolder) {
+                // [폴더 선택 페이지] 기존과 동일
                 titleHtml += ` / <a href="gallery_sub.html?year=${currYear}" style="display:inline;">${currYear}</a> / <span>${parseInt(currMonth)}월</span>`;
-
-                cfg.folderNames.forEach((name, index) => {
-                    let fId = `folder_${index + 1}`;
-                    html += `
-                        <div class="archive_item">
-                            <a href="gallery_sub.html?year=${currYear}&month=${currMonth}&id=${fId}">
-                                <div class="thumb_box"></div>
-                                <p class="year_text">${name}</p>
-                            </a>
-                        </div>`;
+                cfg.folder_names.forEach((name, index) => {
+                    html += `<div class="archive_item"><a href="gallery_sub.html?year=${currYear}&month=${currMonth}&id=folder_${index + 1}"><div class="thumb_box"></div><p class="year_text">${name}</p></a></div>`;
                 });
-            }
-            // [B] 폴더를 눌렀을 때 -> 이미지 리스트 출력
-            else {
-                // 선택한 폴더 이름 가져오기
+            } else {
+                // [상세 페이지 - 이미지 & 비디오 분리]
                 const folderIdx = parseInt(currFolder.split('_')[1]) - 1;
-                const folderName = cfg.folderNames[folderIdx] || "Detail";
-
+                const folderName = cfg.folder_names[folderIdx] || "Detail";
                 titleHtml += ` / <a href="gallery_sub.html?year=${currYear}" style="display:inline;">${currYear}</a> / <a href="gallery_sub.html?year=${currYear}&month=${currMonth}" style="display:inline;">${parseInt(currMonth)}월</a> / <span>${folderName}</span>`;
 
-                cfg.images.forEach(img => {
+                // 1. Image 섹션
+                html += `<div style="grid-column: 1 / -1; width: 100%;"><h3 style="margin-bottom:20px; text-align:left;">Image</h3></div>`;
+                cfg.image_list.forEach(img => {
                     html += `
                         <div class="archive_item">
-                            /* 경로를 ./images/로 수정했습니다 */
-                            <div class="thumb_box lightbox_trigger" style="background-image: url('./images/${img}');"></div>
-                            <p class="year_text">${img.split('.')[0]}</p>
+                            <div class="thumb_box" style="background-image: url('./images/${img}'); cursor:pointer;" onclick="window.open('./images/${img}')"></div>
+                            <p class="year_text">${img}</p>
+                        </div>`;
+                });
+
+                // 2. Video 섹션 (구분선 추가)
+                html += `<div style="grid-column: 1 / -1; width: 100%; height: 1px; background: #eee; margin: 50px 0;"></div>`;
+                html += `<div style="grid-column: 1 / -1; width: 100%;"><h3 style="margin-bottom:20px; text-align:left;">Video</h3></div>`;
+
+                cfg.video_list.forEach(vid => {
+                    html += `
+                        <div class="archive_item">
+                            <div class="thumb_box" style="background:#000; display:flex; align-items:center; justify-content:center;">
+                                <video width="100%" height="100%" controls style="object-fit: contain;">
+                                    <source src="./images/${vid}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <p class="year_text">${vid}</p>
+                            <a href="./images/${vid}" download style="font-size:12px; color:#666; text-decoration:underline;">Download Video</a>
                         </div>`;
                 });
             }
         }
-
-        // 결과 삽입
         $("#dynamic_title").html(titleHtml);
         $container.html(html);
-
-    }).fail(function () {
-        console.error("data.json 로드 실패. 경로를 확인하세요.");
-    });
-
-    // TOP 버튼 기능
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 300) $('#top_btn').fadeIn();
-        else $('#top_btn').fadeOut();
-    });
-    $('#top_btn').click(function (e) {
-        e.preventDefault();
-        $('html, body').animate({ scrollTop: 0 }, 400);
     });
 });

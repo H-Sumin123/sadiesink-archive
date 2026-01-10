@@ -186,6 +186,25 @@ body {
   display: block;
 }
 
+/* 섹션 타이틀 스타일 */
+h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 비디오가 들어가는 박스 설정 */
+.archive_item video {
+    outline: none;
+}
+
+/* 다운로드 링크 스타일 */
+.archive_item a[download] {
+    display: block;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
 /* [6] Random File 섹션 */
 .random_section {
   margin-top: 100px;
